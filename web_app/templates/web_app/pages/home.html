@@ -1,0 +1,30 @@
+{% extends 'web_app/parts/base.html' %}
+{% load static %}
+
+{% comment %}! COVER VIDEO ! https://codepen.io/GeorgePark/pen/zpRjRK ! https://codepen.io/nidhinnidhi/pen/jWrqrN !{% endcomment %}
+
+{% block title %}
+  Home | CodeLevels
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/pages/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto">
+      <source src="{% static 'media/video/hero-1.mp4' %}" type="video/mp4" />
+      <!-- fallback image -->
+    </video>
+
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <h1 class="title">Welcome to Code Levels!</h1>
+
+      <p class="text">Step-by-step programming projects made with fun and joy in heart!</p>
+      <button class="button">Get started</button>
+    </div>
+  </section>
+{% endblock %}

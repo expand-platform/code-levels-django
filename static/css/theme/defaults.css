@@ -1,0 +1,21 @@
+@import url('/static/css/theme/colors.css');
+
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+}
+
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-primary {
+    background: var(--color-primary);
+    color: var(--text-inverse);
+}
+
+.button-primary:hover {
+    background: var(--color-primary-hover);
+}

@@ -1,0 +1,20 @@
+<div class="main-menu d-none d-lg-block">
+  <nav>
+    <ul id="navigation">
+      <li>
+        <a href="{% url 'home' %}">Головна</a>
+      </li>
+      <li>
+        <a href="{% url 'jobs' %}">Вакансії</a>
+      </li>
+      <li>
+        <a href="{% url 'contact' %}">Контакти</a>
+      </li>
+      {% if user.is_authenticated and user.is_staff %}
+        <li>
+          <a href="{% url 'admin:index' %}">Адмін</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
