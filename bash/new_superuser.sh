@@ -5,7 +5,7 @@
 # ----------------------------
 SUPERUSER_NAME="hero"
 SUPERUSER_EMAIL="damir96.lukyanenko@gmail.com"
-SUPERUSER_PASSWORD="cattTT.2025"
+SUPERUSER_PASSWORD="cattTT2017!"
 # ----------------------------
 
 echo "Creating Django superuser..."

@@ -13,6 +13,9 @@ showmigrations:
 newapp:
 	poetry run python manage.py startapp $(name)
 
+superuser-auto:
+	./bash/new_superuser.sh
+
 superuser:
 	poetry run python manage.py createsuperuser
 
@@ -71,7 +74,10 @@ frontend-install:
 	npm install jquery bootstrap @fortawesome/fontawesome-free
 
 frontend-copy:
-	cp node_modules/jquery/dist/jquery.min.js static/js/libs/ && cp node_modules/bootstrap/dist/css/bootstrap.min.css static/css/libs/ && cp -r node_modules/@fortawesome/fontawesome-free/webfonts static/webfonts/
+	cp node_modules/jquery/dist/jquery.min.js static/js/libs/ && cp node_modules/bootstrap/dist/css/bootstrap.min.css static/css/libs/ && cp node_modules/bootstrap/dist/css/bootstrap.min.css.map static/css/libs/ && cp -r node_modules/@fortawesome/fontawesome-free/webfonts static/ && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css static/css/libs/ && cp node_modules/bootstrap/dist/js/bootstrap.min.js static/js/libs/
+
+fix-webfonts:
+	sed -i 's|\.\./webfonts|../../webfonts|g' static/css/libs/all.min.css
 
 frontend:
-	make frontend-install && make frontend-copy
+	make frontend-install && make frontend-copy && make fix-webfonts && make run

@@ -1,3 +1,5 @@
+@import url('/static/css/theme/colors.css');
+
 @font-face {
     font-family: 'Source Sans Pro';
     font-style: normal;
@@ -23,6 +25,8 @@
     color: #ff2121;
     margin-bottom: 10px;
     list-style-type: none;
+    padding: 0;
+    font-size: var(--body-font-size);
 }
 
 * {
@@ -70,10 +74,11 @@ body :-ms-input-placeholder {
 
 
 .wrapper {
-    background: #50a3a2;
-    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+    background: var(--login-bg-primary);
+    background: linear-gradient(to bottom right, var(--login-bg-primary) 0%, var(--login-bg-secondary) 100%);
     position: relative;
-    height: calc(100vh - 75px);
+    /* height: calc(100vh - 75px); */
+    height: 100vh;
     width: 100%;
     overflow: hidden;
 }
@@ -129,8 +134,7 @@ form input:hover {
 }
 
 form input:focus {
-    background-color: white;
-    /* width: 300px; */
+    background-color: rgba(255, 255, 255, 0.4);
     color: #53e3a6;
 }
 
@@ -143,7 +147,7 @@ form button {
     background-color: rgba(255, 255, 255, 0.2);
     border: 0;
     padding: 10px 15px;
-    color: #53e3a6;
+    color: var(--button-text-primary);
     /* color: rgba(255, 255, 255, 0.2); */
     border-radius: 3px;
     width: 100%;
@@ -153,7 +157,8 @@ form button {
 }
 
 form button:hover {
-    background-color: #f5f7f9;
+    background-color: var(--soft-white);
+    color: var(--dark-blue);
 }
 
 .bg-bubbles {

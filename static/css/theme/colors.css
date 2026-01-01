@@ -1,3 +1,13 @@
+:root {
+  --light-purple: rgb(164, 125, 226);
+  --dark-purple: #6d28d9;
+  --dark-purple-transparent: rgba(109, 40, 217, 0.8);
+  --darker-purple: rgb(76, 24, 159);
+  --soft-white: #e5e7eb;
+  --dark-blue: #0f172a;
+}
+
+
 :root[data-theme="dark"] {
   /* ===== Base ===== */
   --bg-main: #0f172a;
@@ -10,10 +20,22 @@
   --text-muted: #64748b;
   --text-inverse: #020617;
 
+  /* login */
+  --login-bg-primary: var(--dark-purple);
+  --login-bg-secondary: var(--light-purple);
+
+  /* Buttons */
+  --button-bg-primary: var(--dark-purple-transparent);
+  --button-text-primary: var(--soft-white);
+
   /* ===== Brand ===== */
-  --color-primary: #3b82f6;     /* blue */
-  --color-primary-hover: #2563eb;
-  --color-accent: #22d3ee;      /* cyan */
+  /* --bg-primary: #3b82f6; */
+  --bg-primary: var(--dark-purple);
+  --bg-primary-hover: var(--darker-purple);
+
+  /* --color-primary: #3b82f6;      */
+  /* --color-primary-hover: #2563eb; */
+  --color-accent: #22d3ee;
 
   /* ===== States ===== */
   --color-success: #22c55e;
@@ -54,9 +76,11 @@
   --text-inverse: #ffffff;
 
   /* ===== Brand ===== */
-  --color-primary: #2563eb;     /* blue */
+  --color-primary: #2563eb;
+  /* blue */
   --color-primary-hover: #1d4ed8;
-  --color-accent: #f59e0b;      /* amber */
+  --color-accent: #f59e0b;
+  /* amber */
 
   /* ===== States ===== */
   --color-success: #16a34a;

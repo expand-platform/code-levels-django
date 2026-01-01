@@ -30,10 +30,10 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 ACCOUNT_FORMS = {
-    "login": "web_app.forms.CustomLoginForm",
-    "signup": "web_app.forms.custom_signup_form.CustomSignupForm",
+    "login": "website.forms.CustomLoginForm",
+    "signup": "website.forms.custom_signup_form.CustomSignupForm",
 }
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "home"
 

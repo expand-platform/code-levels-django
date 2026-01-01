@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     # apps
-    "web_app.apps.WebAppConfig",
+    "website.apps.WebAppConfig",
 ]
 
 MIDDLEWARE = [
@@ -90,7 +90,7 @@ ROOT_URLCONF = "code_levels.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates", BASE_DIR / "web_app" / "templates" / "web_app"],
+        "DIRS": [BASE_DIR / "templates", BASE_DIR / "website" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -98,7 +98,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # ? custom context processors
-                # "web_app.context_processors.website_config",
+                # "website.context_processors.website_config",
             ],
         },
     },

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        Code levels
+      {% endblock %}
+    </title>
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
+    <!-- CSS Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    {# ? libs #}
+    <link rel="stylesheet" href="{% static 'css/libs/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/all.min.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/libs/animate.min.css' %}" /> {% endcomment %}
+    {% comment %}? libraries{% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" />
+
+    {% comment %} <link rel="stylesheet" href="{% static 'css/libs/theme-default.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/themify-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/flaticon.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/slicknav.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/gijgo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/libs/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" /> {% endcomment %}
+    {% comment %}pages{% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static 'css/pages/candidates.css' %}" /> {% endcomment %}
+    {% block extra_css %}
+
+    {% endblock %}
+
+    <!-- JS Libraries -->
+    <script src="{% static 'js/libs/jquery.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/bootstrap.min.js' %}" defer></script>
+    {% comment %} <script src="{% static 'js/libs/jquery-1.12.4.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/popper.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/modernizr-3.5.0.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/isotope.pkgd.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/gijgo.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery-ui.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.ajaxchimp.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.counterup.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.form.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.magnific-popup.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.scrollUp.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.slicknav.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/jquery.validate.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/mail-script.js' %}" defer></script>
+    <script src="{% static 'js/libs/nice-select.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/owl.carousel.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/plugins.js' %}" defer></script>
+    <script src="{% static 'js/libs/range.js' %}" defer></script>
+    <script src="{% static 'js/libs/scrollIt.js' %}" defer></script>
+    <script src="{% static 'js/libs/waypoints.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/wow.min.js' %}" defer></script>
+    <script src="{% static 'js/libs/ajax-form.js' %}" defer></script>
+    <script src="{% static 'js/libs/contact.js' %}" defer></script>
+    <script src="{% static 'js/libs/main.js' %}" defer></script> {% endcomment %}
+    {% block extra_js %}
+
+    {% endblock %}
+  </head>
+  <body data-theme="dark">
+    {% comment %} {% include 'store/parts/layout/top-bar.html' %}
+    {% include 'store/parts/layout/header.html' %}
+    {% include 'store/parts/layout/search-modal.html' %} {% endcomment %}
+
+    {% block hero %}
+
+    {% endblock %}
+    <main class="content">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    {% comment %} {% include 'store/parts/layout/footer.html' %}
+    {% include 'store/parts/layout/copyright.html' %} {% endcomment %}
+  </body>
+</html>
