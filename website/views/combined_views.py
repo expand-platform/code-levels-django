@@ -1,5 +1,9 @@
 from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Static Pages
-class DashboardView(TemplateView):
-    template_name = "website/pages/dashboard.html"
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = "website/dashboard/dashboard.html"
+
+class LevelView(LoginRequiredMixin, TemplateView):
+    template_name = "website/dashboard/level.html"

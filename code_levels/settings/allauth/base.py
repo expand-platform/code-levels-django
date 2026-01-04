@@ -32,6 +32,7 @@ SOCIALACCOUNT_PROVIDERS = {
 ACCOUNT_FORMS = {
     "login": "website.forms.CustomLoginForm",
     "signup": "website.forms.custom_signup_form.CustomSignupForm",
+    "socialaccount_signup": "website.forms.custom_social_signup_form.CustomSocialSignupForm",
 }
 
 LOGIN_REDIRECT_URL = "dashboard"

@@ -5,6 +5,7 @@ from website.views import *
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("dashboard/", DashboardView.as_view(), name="dashboard"),
+    path("level/", LevelView.as_view(), name="level"),
     # path("contact/", ContactView.as_view(), name="contact"),
     
     # path("jobs/", JobsView.as_view(), name="jobs"),
@@ -14,7 +15,7 @@ urlpatterns = [
     # path("add_job/", JobCreateView.as_view(), name="add_job"),
     
     # path("login/", CustomLoginView.as_view(), name="login"),
-    # path("logout/", CustomLogoutView.as_view(), name="logout"),
+    path("account/logout/", CustomLogoutView.as_view(), name="logout"),
     # path("signup/", SignupView.as_view(), name="signup"),
     
     

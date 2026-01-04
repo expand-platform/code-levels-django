@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/pages/dashboard.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/dashboard/dashboard.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -16,6 +16,7 @@
       <p class="dashboard-text">Here you can manage your projects, view your progress, and access exclusive resources.</p>
       <div class="dashboard-actions">
         <a href="#" class="btn btn-primary">View Projects</a>
+        <a href="{% url 'level' %}" class="btn btn-primary">Start practicing</a>
         <a href="#" class="btn btn-secondary">Account Settings</a>
       </div>
     </div>

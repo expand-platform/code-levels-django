@@ -1,4 +1,4 @@
-JAZZMIN_SETTINGS = {
+JAZZMIN_SETTINGS_DICT = {
     "topmenu_links": [
         {"name": "Home", "url": "home"},
         # {"name": "Shop", "url": "products"},

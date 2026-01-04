@@ -7,17 +7,16 @@ from dj_database_url import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+JAZZMIN_SETTINGS = JAZZMIN_SETTINGS_DICT
 
 env = environ.Env(
     DJANGO_SETTINGS_MODULE=(str, "code_levels.settings"),
     SECRET_KEY=(str, ""),
-    
     DB_NAME=(str, ""),
     DB_USER=(str, ""),
     DB_PASSWORD=(str, ""),
     DB_HOST=(str, ""),
     DB_PORT=(str, ""),
-
     ALLOWED_HOSTS=(list, []),
     CSRF_TRUSTED_ORIGINS=(list, []),
 )
@@ -45,13 +44,14 @@ for var in required_db_vars:
 
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-     # auth
+    # auth
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -69,6 +69,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # custom middleware
+    "website.middleware.AdminStaffOnlyMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
 
@@ -91,7 +92,11 @@ ROOT_URLCONF = "code_levels.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates", BASE_DIR / "website" / "templates"],
+        "DIRS": [
+            BASE_DIR / "templates",
+            BASE_DIR / "website" / "templates",
+            BASE_DIR / "website" / "templates" / "account",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -119,8 +124,6 @@ DATABASES = {
         "PORT": env("DB_PORT"),
     }
 }
-
-
 
 
 AUTH_PASSWORD_VALIDATORS = [

@@ -7,4 +7,4 @@ from django.core.paginator import Paginator
 
 # def single_product(request: HttpRequest, slug: SlugField) -> HttpResponse:
 #     product = get_object_or_404(Product, slug=slug)
-#     return render(request, "store/pages/product-single.html", {"product": product})
+#     return render(request, "website/pages/product-single.html", {"product": product})
