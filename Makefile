@@ -1,3 +1,7 @@
+# git
+save:
+	git add . && git commit -m "$(msg)"
+
 run:
 	poetry run python manage.py runserver
 

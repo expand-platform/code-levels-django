@@ -24,7 +24,7 @@ END
 -- Ownership
 ALTER DATABASE $DB_NAME OWNER TO $DB_USER;
 
--- 🔴 THIS WAS MISSING
+-- PRIVILEGES
 GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;
 
 -- Role defaults
@@ -53,5 +53,6 @@ ALTER DEFAULT PRIVILEGES FOR ROLE $DB_USER
 IN SCHEMA public GRANT ALL ON FUNCTIONS TO $DB_USER;
 EOF
 
-echo "PostgreSQL user and database configured successfully."
+echo "🟢 PostgreSQL user and database configured successfully."
+echo "🔴 exec bash -l"
 

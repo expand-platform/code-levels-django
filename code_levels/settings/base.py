@@ -3,6 +3,7 @@ from pathlib import Path
 from code_levels.settings.allauth.base import *
 from code_levels.settings.plugins.colored_logs import *
 from code_levels.settings.admin.jazzmin import *
+from dj_database_url import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -118,6 +119,8 @@ DATABASES = {
         "PORT": env("DB_PORT"),
     }
 }
+
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
