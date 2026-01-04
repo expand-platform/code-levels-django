@@ -12,6 +12,7 @@ local_settings.py
 *.sqlite3
 *.db
 media/
+!static/media
 staticfiles/
 .DS_Store
 *.swp
