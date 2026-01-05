@@ -30,11 +30,13 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 ACCOUNT_FORMS = {
-    "login": "website.forms.CustomLoginForm",
-    "signup": "website.forms.custom_signup_form.CustomSignupForm",
-    "socialaccount_signup": "website.forms.custom_social_signup_form.CustomSocialSignupForm",
+    "login": "platform_web.forms.CustomLoginForm",
+    "signup": "platform_web.forms.custom_signup_form.CustomSignupForm",
+    "socialaccount_signup": "platform_web.forms.custom_social_signup_form.CustomSocialSignupForm",
 }
 
+# Django auth settings
+SITE_ID = 1
+LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "home"
-

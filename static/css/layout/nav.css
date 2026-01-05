@@ -17,3 +17,7 @@
     color: var(--nav-text) !important;
     /* transition: color 0.3s ease, background-color 0.3s ease; */
 }
+
+.nav-link i {
+    margin-right: .5rem;
+}

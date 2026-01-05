@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     # apps
-    "website.apps.WebAppConfig",
+    "platform_web.apps.PlatformWeb",
 ]
 
 MIDDLEWARE = [
@@ -69,16 +69,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # custom middleware
-    "website.middleware.AdminStaffOnlyMiddleware",
+    "platform_web.middleware.AdminStaffOnlyMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
-
-
-# Django auth settings
-LOGIN_URL = "/login/"
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
-SITE_ID = 1
 
 
 AUTHENTICATION_BACKENDS = [
@@ -94,8 +87,8 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             BASE_DIR / "templates",
-            BASE_DIR / "website" / "templates",
-            BASE_DIR / "website" / "templates" / "account",
+            BASE_DIR / "platform_web" / "templates",
+            BASE_DIR / "platform_web" / "templates" / "account",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -104,7 +97,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # ? custom context processors
-                # "website.context_processors.website_config",
+                "platform_web.context_processors.website_config",
             ],
         },
     },
