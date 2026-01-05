@@ -1,15 +1,23 @@
 from django.views.generic import TemplateView
 from django.http import HttpRequest, HttpResponse
+from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
-# from store.models.store.product import Product
+from django.contrib.auth import login as auth_login, logout
+from django.shortcuts import redirect
+
+class CustomLogoutView(LogoutView):
+    # template_name = "website/account/logout.html"
+    def dispatch(self, request, *args, **kwargs):
+        logout(request)
+        return redirect("/")
 
 
 class NotFoundView(TemplateView):
-    template_name = "store/pages/404.html"
+    template_name = "website/pages/404.html"
 
 
 class NotFoundPreview(TemplateView):
-    template_name = "store/pages/404.html"
+    template_name = "website/pages/404.html"
 
 
 # not found 404
@@ -29,5 +37,5 @@ def not_found_404(request, exception):
 #         results = Product.objects.none()
 
 #     return render(
-#         request, "store/pages/search_results.html", {"results": results, "query": query}
+#         request, "website/pages/search_results.html", {"results": results, "query": query}
 #     )

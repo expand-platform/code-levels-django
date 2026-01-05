@@ -26,7 +26,7 @@ from django.db.models import Count
 
 #     return render(
 #         request,
-#         "store/pages/home.html",
+#         "website/pages/home.html",
 #         {
 #             "featured_subcategories": featured_subcategories,
 #             "featured_products": featured_products,
@@ -56,7 +56,7 @@ from django.db.models import Count
 
 #     return render(
 #         request,
-#         "store/pages/products.html",
+#         "website/pages/products.html",
 #         {
 #             "products": sorted_products,
 #             "products_page": paginated_products,

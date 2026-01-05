@@ -1,9 +1,8 @@
 from django.views.generic import TemplateView, ListView, DetailView
-from django.contrib.auth.views import LoginView, LogoutView
 from website.forms import CustomLoginForm, CustomSignupForm
 
 from django.contrib import messages
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import login as auth_login, logout
 
 # from .models import Vacancy
 from django.urls import reverse_lazy
@@ -14,6 +13,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.edit import FormView
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
+
+from django.shortcuts import redirect
+
 
 
 class HomeView(TemplateView):
@@ -45,9 +47,7 @@ class ContactView(TemplateView):
 #         return super().form_valid(form)
 
 
-class CustomLogoutView(LogoutView):
-    template_name = "website/account/logout.html"
-    next_page = reverse_lazy("home")
+
 
 
 # class JobDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):

@@ -1,0 +1,18 @@
+{% extends 'website/parts/layout/base.html' %}
+{% load static %}
+
+{% block title %}
+  Level |
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/dashboard/level.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <section class="dashboard-section">
+    <div class="container">
+      <h1 class="dashboard-title">Level Builder</h1>
+    </div>
+  </section>
+{% endblock %}

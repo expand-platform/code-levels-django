@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 # from store.config.config import WebsiteSettings
 
-
 # handler404 = "website.views.not_found_404"
 
 urlpatterns = [
