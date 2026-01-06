@@ -1,5 +1,5 @@
-from platform_web.views.static_views import *
-from platform_web.views.functional_views import *
+from platform_web.views.static import *
+from platform_web.views.functional import *
 
 from platform_web.views.single_views import *
 from platform_web.views.list_views import *

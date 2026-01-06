@@ -1,4 +1,4 @@
-{% extends 'website/parts/layout/base.html' %}
+{% extends 'website/dashboard/parts/layout.html' %}
 {% load static %}
 
 {% block title %}
@@ -6,14 +6,19 @@
 {% endblock %}
 
 {% block extra_css %}
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/dashboard/dashboard.css' %}" />
   <link rel="stylesheet" href="{% static 'css/dashboard/map.css' %}" />
 {% endblock %}
 
 {% block extra_js %}
-  <script src="{% static 'js/dashboard/map.js' %}" defer></script>
+  <script src="{% static 'js/dashboard/dashboard.js' %}" defer type="module"></script>
+  <script src="{% static 'js/dashboard/map.js' %}" defer type="module"></script>
 {% endblock %}
 
-{% block content %}
+
+
+{% block dashboard_content %}
   <section class="map">
     <!--SVG GRADIENTS AND SPRITES PART-->
 <svg aria-hidden="true" focusable="false" style="width:0;height:0;position:absolute;">

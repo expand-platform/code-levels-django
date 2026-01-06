@@ -1,3 +1,12 @@
+import { loadColorScheme, saveColorScheme } from "../ui/colorScheme.js";
+
+function onLoad() {
+    loadColorScheme();
+}
+
+onLoad();
+
+
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
 allSideMenu.forEach(item => {
@@ -54,17 +63,12 @@ searchButton.addEventListener('click', function (e) {
 
 // Dark Mode Switch
 const switchMode = document.getElementById('switch-mode');
-document.body.classList.add('dark'); // default mode
 
-switchMode.addEventListener('change', function () {
-    if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        document.body.classList.add('dark');
-    } else {
-        document.documentElement.removeAttribute('data-theme');
-        document.body.classList.remove('dark');
-    }
-})
+switchMode.onchange = () => {
+    console.log('- switchMode.checked -', switchMode.checked);
+    
+    saveColorScheme(switchMode.checked);
+}
 
 // Notification Menu Toggle
 document.querySelector('.notification').addEventListener('click', function () {

@@ -37,20 +37,12 @@
     {% endblock %}
   </head>
   <body data-theme="dark">
-    {% comment %} {% include 'website/parts/layout/top-bar.html' %}
-    {% include 'website/parts/layout/header.html' %}
-    {% include 'website/parts/layout/search-modal.html' %} {% endcomment %}
+    {% block layout %}
+      <main class="content">
+        {% block content %}
 
-    {% block hero %}
-
+        {% endblock %}
+      </main>
     {% endblock %}
-    <main class="content">
-      {% block content %}
-
-      {% endblock %}
-    </main>
-
-    {% comment %} {% include 'website/parts/layout/footer.html' %}
-    {% include 'website/parts/layout/copyright.html' %} {% endcomment %}
   </body>
 </html>

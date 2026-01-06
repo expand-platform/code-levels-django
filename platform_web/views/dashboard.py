@@ -7,8 +7,8 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
 
 class MapView(LoginRequiredMixin, TemplateView):
-    template_name = "website/dashboard/map.html"
+    template_name = "website/dashboard/pages/map.html"
 
 
 class LevelView(LoginRequiredMixin, TemplateView):
-    template_name = "website/dashboard/level.html"
+    template_name = "website/dashboard/pages/level.html"

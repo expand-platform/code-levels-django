@@ -1,8 +1,0 @@
-<div class="dashboard-actions">
-  <a href="#" class="btn btn-primary">View Projects</a>
-  <a href="{% url 'level' %}" class="btn btn-primary">Start practicing</a>
-  <a href="#" class="btn btn-secondary">Account Settings</a>
-  {% if user.is_staff %}
-    <a href="{% url 'admin:index' %}" class="btn btn-secondary">Admin</a>
-  {% endif %}
-</div>
