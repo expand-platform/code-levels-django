@@ -1,11 +1,12 @@
 import { loadColorScheme, saveColorScheme } from "../ui/colorScheme.js";
+import { loadSidebarState } from "./parts/sidebar.js";
 
 function onLoad() {
     loadColorScheme();
+    loadSidebarState();
 }
 
 onLoad();
-
 
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
@@ -20,29 +21,6 @@ allSideMenu.forEach(item => {
     })
 });
 
-// TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .bx.bx-menu');
-const sidebar = document.getElementById('sidebar');
-
-// Sidebar toggle işlemi
-menuBar.addEventListener('click', function () {
-    sidebar.classList.toggle('hide');
-});
-
-// Sayfa yüklendiğinde ve boyut değişimlerinde sidebar durumunu ayarlama
-function adjustSidebar() {
-    if (window.innerWidth <= 576) {
-        sidebar.classList.add('hide');  // 576px ve altı için sidebar gizli
-        sidebar.classList.remove('show');
-    } else {
-        sidebar.classList.remove('hide');  // 576px'den büyükse sidebar görünür
-        sidebar.classList.add('show');
-    }
-}
-
-// Sayfa yüklendiğinde ve pencere boyutu değiştiğinde sidebar durumunu ayarlama
-window.addEventListener('load', adjustSidebar);
-window.addEventListener('resize', adjustSidebar);
 
 // Arama butonunu toggle etme
 const searchButton = document.querySelector('#content nav form .form-input button');
@@ -66,7 +44,7 @@ const switchMode = document.getElementById('switch-mode');
 
 switchMode.onchange = () => {
     console.log('- switchMode.checked -', switchMode.checked);
-    
+
     saveColorScheme(switchMode.checked);
 }
 
