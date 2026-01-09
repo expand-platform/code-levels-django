@@ -10,5 +10,5 @@ class MapView(LoginRequiredMixin, TemplateView):
     template_name = "website/dashboard/pages/map.html"
 
 
-class LevelView(LoginRequiredMixin, TemplateView):
-    template_name = "website/dashboard/pages/level.html"
+class LevelsView(LoginRequiredMixin, TemplateView):
+    template_name = "website/dashboard/pages/levels.html"

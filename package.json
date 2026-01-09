@@ -11,8 +11,11 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "@codesandbox/sandpack-client": "^2.19.8",
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "bootstrap": "^5.3.8",
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "monaco-editor": "^0.55.1"
   }
 }

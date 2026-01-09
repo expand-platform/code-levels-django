@@ -6,7 +6,7 @@ urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("dashboard/", DashboardView.as_view(), name="dashboard"),
     path("dashboard/map/", MapView.as_view(), name="dashboard_map"),
-    path("level/", LevelView.as_view(), name="level"),
+    path("levels/", LevelsView.as_view(), name="levels"),
     # path("contact/", ContactView.as_view(), name="contact"),
     
     # path("jobs/", JobsView.as_view(), name="jobs"),
