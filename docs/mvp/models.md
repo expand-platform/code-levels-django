@@ -39,11 +39,16 @@
 
 ## Project
 - id (pk)
-- user(s) - who signed for this project
+- user(s) - who signed up for this project
 - title 
 - description (for the Dashboard)
-- skills (for the Dashboard)
-- programming languages (predefined select, multiple options)
-- order (predefined select, multiple options)
-- complexity (predefined select, multiple options)
-- iterations (approximate key stages (skills) involved)
+- image (from uploads)
+- icon (just a class - str - for icon)
+- order (int)
+
+Relations with models:
+- programming languages (predefined select, multiple options) -> multiselect with predefined values, never change, filled programmatically
+- Difficulty -> Difficulty model with predefined values (easy, moderate, hard), could be change / added / removed via admin panel
+- stages (list of predefined key development stages like markup, JS logic, server development, database, hosting, testing etc) -> Stage model, because could be changed any time
+- skills (for the Dashboard) -> Skill model with id, name
+- parts (?) -> Part model, one project, many parts -> parts of the project (1, 2, 3 etc)

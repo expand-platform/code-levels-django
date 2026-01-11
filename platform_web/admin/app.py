@@ -1,27 +1,32 @@
-# from django.contrib import admin
-
-# from platform_web.models.store.subcategory import Subcategory
-# from platform_web.models.store.product import Product
-# from platform_web.models.store.category import Category
-# from platform_web.models.store.product_image import ProductImage
-# from platform_web.models.store.review import Review
-# from platform_web.models.store.attribute import Attribute, AttributeValue
-
-
-# # inlines
-# class InlineProductImage(admin.TabularInline):
-#     model = ProductImage
-#     extra = 1
+from django.contrib import admin
+from platform_web.models.app.project.Project import Project
+from platform_web.models.app.project.ProjectPart import ProjectPart
+from platform_web.models.app.project.ProgrammingLanguage import ProgrammingLanguage
+from platform_web.models.app.project.Difficulty import Difficulty
+from platform_web.models.app.project.DevelopmentStage import DevelopmentStage
+from platform_web.models.app.project.Skill import Skill
+from platform_web.models.app.project.Review import Review
+from platform_web.models.app.project.Submission import Submission
+from platform_web.models.app.learning_models import *
 
 
-# # inlines -> linked to main
-# class ProductInlines(admin.ModelAdmin):
-#     inlines = [InlineProductImage]
+class ProjectPartInline(admin.TabularInline):
+    model = ProjectPart
+    extra = 1
 
 
-# admin.site.register(Product, ProductInlines)
-# admin.site.register(Category)
-# admin.site.register(Review)
-# admin.site.register(Attribute)
-# admin.site.register(AttributeValue)
-# admin.site.register(Subcategory)
+class ProjectAdmin(admin.ModelAdmin):
+    inlines = [ProjectPartInline]
+    list_display = ("title", "order", "is_active", "difficulty")
+    list_filter = ("is_active", "difficulty", "programming_languages")
+    search_fields = ("title", "description")
+
+
+admin.site.register(Project, ProjectAdmin)
+admin.site.register(ProjectPart)
+admin.site.register(ProgrammingLanguage)
+admin.site.register(Difficulty)
+admin.site.register(DevelopmentStage)
+admin.site.register(Skill)
+admin.site.register(Review)
+admin.site.register(Submission)

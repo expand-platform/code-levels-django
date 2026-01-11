@@ -5,8 +5,9 @@ from platform_web.views import *
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("dashboard/", DashboardView.as_view(), name="dashboard"),
+    path("dashboard/projects/", projects_view, name="projects"),
     path("dashboard/map/", MapView.as_view(), name="dashboard_map"),
-    path("levels/", LevelsView.as_view(), name="levels"),
+    path("dashboard/levels/", LevelsView.as_view(), name="levels"),
     # path("contact/", ContactView.as_view(), name="contact"),
     
     # path("jobs/", JobsView.as_view(), name="jobs"),

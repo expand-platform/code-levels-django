@@ -4,10 +4,24 @@
     <span class="text">{{website_config.site_name}}</span>
   </a>
   <ul class="side-menu top">
+    {% if user.is_staff %}
+    <li class="">
+      <a href="{% url 'admin:index' %}">
+        <i class="bx bxs-dashboard bx-sm"></i>
+        <span class="text">Admin</span>
+      </a>
+    </li>
+    {% endif %}
     <li class="active">
       <a href="#">
         <i class="bx bxs-dashboard bx-sm"></i>
         <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li class="">
+      <a href="{% url 'projects' %}">
+        <i class="bx bxs-dashboard bx-sm"></i>
+        <span class="text">Projects</span>
       </a>
     </li>
     <li>
