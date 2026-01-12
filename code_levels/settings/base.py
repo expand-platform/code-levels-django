@@ -27,9 +27,9 @@ if env_file.exists():
     env.read_env(env_file)
 
 
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 if not SECRET_KEY:
-    raise Exception("SECRET_KEY environment variable must be set!")
+    raise Exception("DJANGO_SECRET_KEY environment variable must be set!")
 
 required_db_vars = [
     "DB_NAME",

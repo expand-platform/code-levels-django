@@ -52,22 +52,22 @@ env-prod:
 	chmod +x ./bash/make_env_prod.sh && ./bash/make_env_prod.sh
 
 deploy-check:
-	python manage.py check --deploy --settings=jobs_portal.settings.prod
+	python manage.py check --deploy --settings=code_levels.settings.prod
 
 check-prod:
-	python manage.py check --settings=jobs_portal.settings.prod
+	python manage.py check --settings=code_levels.settings.prod
 
 static-prod:
-	python manage.py collectstatic --settings=jobs_portal.settings.prod --noinput
+	python manage.py collectstatic --settings=code_levels.settings.prod --noinput
 
 migrate-prod:
-	python manage.py makemigrations --settings=jobs_portal.settings.prod && python manage.py migrate --settings=jobs_portal.settings.prod
+	python manage.py makemigrations --settings=code_levels.settings.prod && python manage.py migrate --settings=code_levels.settings.prod
 
 superuser-prod:
-	python manage.py createsuperuser --settings=jobs_portal.settings.prod
+	python manage.py createsuperuser --settings=code_levels.settings.prod
 
 run-prod:
-	python manage.py runserver --settings=jobs_portal.settings.prod
+	python manage.py runserver --settings=code_levels.settings.prod
 
 # Helpers
 activate-venv-prod:
@@ -84,4 +84,12 @@ fix-webfonts:
 	sed -i 's|\.\./webfonts|../../webfonts|g' static/css/libs/all.min.css
 
 frontend:
-	make frontend-install && make frontend-copy && make fix-webfonts && make run
+	make frontend-install && make frontend-copy && make fix-webfonts
+
+
+# railway
+guvicorn-prod:
+	gunicorn code_levels.wsgi:application
+	
+deploy:
+	make deploy-check && make frontend && make static-prod && make migrate-prod && make guvicorn-prod
