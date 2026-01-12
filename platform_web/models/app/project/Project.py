@@ -26,6 +26,7 @@ class Project(models.Model):
     is_active = models.BooleanField(default=True)
     slug = models.SlugField(max_length=255, unique=True)
     # skills field temporarily removed for migration
+    skills = models.ManyToManyField(Skill, blank=True)
 
     # users = models.ManyToManyField(
     #     User,
