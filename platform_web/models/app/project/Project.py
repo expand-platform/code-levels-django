@@ -5,13 +5,15 @@ from django.utils.text import slugify
 from platform_web.models.app.project.ProgrammingLanguage import ProgrammingLanguage
 from platform_web.models.app.project.Difficulty import Difficulty
 from platform_web.models.app.project.DevelopmentStage import DevelopmentStage
-from platform_web.models.app.project.Skill import Skill, ProjectSkill
+from platform_web.models.app.project.Skill import Skill
 
 User = get_user_model()
 
 
 class Project(models.Model):
+    is_active = models.BooleanField(default=True)
     order = models.PositiveIntegerField(default=0)
+    
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to="project_images/", blank=True, null=True)
     programming_languages = models.ManyToManyField(
@@ -20,13 +22,12 @@ class Project(models.Model):
     difficulty = models.ForeignKey(
         Difficulty, on_delete=models.SET_NULL, null=True, blank=True
     )
+    skills = models.ManyToManyField(Skill, blank=True)
     stages = models.ManyToManyField(DevelopmentStage, blank=True)
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+  
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(default=True)
-    slug = models.SlugField(max_length=255, unique=True)
-    # skills field temporarily removed for migration
-    skills = models.ManyToManyField(Skill, blank=True)
 
     # users = models.ManyToManyField(
     #     User,
@@ -40,12 +41,7 @@ class Project(models.Model):
     # icon = models.CharField(max_length=100, blank=True, help_text="CSS class for icon")
 
     def save(self, *args, **kwargs):
-        if self.pk:
-            orig = Project.objects.get(pk=self.pk)
-            if orig.title != self.title:
-                self.slug = slugify(self.title)
-        else:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):

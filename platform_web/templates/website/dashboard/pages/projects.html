@@ -32,12 +32,12 @@
                 {% endif %}
                 <div class="project-info">
                   <h3 class="mb-3">{{ project.title }}</h3>
-                  <span class="project-difficulty">{{ project.difficulty }}</span>
+                  <span class="project-difficulty mb-3">{{ project.difficulty }}</span>
 
                   {% if project.skills.all %}
-                    <ul class="project-skills">
+                    <ul class="project-skills d-flex flex-wrap column-gap-2 pe-3">
                       {% for skill in project.skills.all %}
-                        <li>{{ skill.name }}</li>
+                        <li>#{{ skill.name }}</li>
                       {% endfor %}
                     </ul>
                   {% endif %}
