@@ -1,9 +1,9 @@
+from multiprocessing.util import DEBUG
 import environ
 from pathlib import Path
 from code_levels.settings.allauth.base import *
 from code_levels.settings.plugins.colored_logs import *
 from code_levels.settings.admin.jazzmin import *
-from dj_database_url import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -11,36 +11,18 @@ JAZZMIN_SETTINGS = JAZZMIN_SETTINGS_DICT
 
 env = environ.Env(
     DJANGO_SETTINGS_MODULE=(str, "code_levels.settings"),
-    SECRET_KEY=(str, ""),
-    DB_NAME=(str, ""),
-    DB_USER=(str, ""),
-    DB_PASSWORD=(str, ""),
-    DB_HOST=(str, ""),
-    DB_PORT=(str, ""),
+    DJANGO_SECRET_KEY=(str, ""),
     ALLOWED_HOSTS=(list, []),
     CSRF_TRUSTED_ORIGINS=(list, []),
 )
 
 env_file = BASE_DIR / ".env"
-
 if env_file.exists():
     env.read_env(env_file)
-
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 if not SECRET_KEY:
     raise Exception("DJANGO_SECRET_KEY environment variable must be set!")
-
-required_db_vars = [
-    "DB_NAME",
-    "DB_USER",
-    "DB_PASSWORD",
-    "DB_HOST",
-    "DB_PORT",
-]
-for var in required_db_vars:
-    if env(var, default=None) in (None, ""):
-        raise Exception(f"Database environment variable {var} must be set!")
 
 
 INSTALLED_APPS = [
@@ -107,16 +89,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "code_levels.wsgi.application"
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("DB_NAME"),
-        "USER": env("DB_USER"),
-        "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
-        "PORT": env("DB_PORT"),
-    }
-}
+
 
 
 AUTH_PASSWORD_VALIDATORS = [

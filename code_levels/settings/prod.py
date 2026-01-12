@@ -2,8 +2,7 @@ from .base import *
 from code_levels.settings.allauth.prod import *
 from dj_database_url import parse
 
-
-DEBUG = False
+DEBUG = False  # type: ignore
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
