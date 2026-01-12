@@ -31,3 +31,5 @@ python manage.py migrate --settings=code_levels.settings.prod
 
 # Start Gunicorn server
 # gunicorn code_levels.wsgi:application
+
+#! https://railpack.com/getting-started railpack configuration (NOdeJS env variable for prod)
