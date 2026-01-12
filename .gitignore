@@ -35,8 +35,6 @@ staticfiles/
 Thumbs.db
 
 # Migrations
-**/migrations/*
-!**/migrations/__init__.py
 
 # Coverage
 htmlcov/
