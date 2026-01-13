@@ -1,7 +1,7 @@
 from .base import *
 from code_levels.settings.allauth.dev import *
 
-DEBUG = True # type: ignore
+DEBUG = True
 
 INSTALLED_APPS += [
     "django_browser_reload",

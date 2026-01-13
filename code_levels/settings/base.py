@@ -1,4 +1,3 @@
-from multiprocessing.util import DEBUG
 import environ
 from pathlib import Path
 from code_levels.settings.allauth.base import *
@@ -6,6 +5,7 @@ from code_levels.settings.plugins.colored_logs import *
 from code_levels.settings.admin.jazzmin import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+ROOT_URLCONF = "code_levels.urls"
 
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS_DICT
 
@@ -61,7 +61,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-ROOT_URLCONF = "code_levels.urls"
 
 
 TEMPLATES = [
