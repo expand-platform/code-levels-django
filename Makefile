@@ -1,7 +1,14 @@
+# poetry
+add-exports:
+	poetry self add poetry-plugin-export
+
 # git
 save:
 	git add . && git commit
+ready:
+	git add . && git commit && git push
 
+# django
 run:
 	poetry run python manage.py runserver
 
@@ -17,11 +24,11 @@ showmigrations:
 newapp:
 	poetry run python manage.py startapp $(name)
 
-superuser-auto:
-	./bash/new_superuser.sh
-
 superuser:
 	poetry run python manage.py createsuperuser
+
+superuser-auto:
+	./bash/new_superuser.sh
 
 check-active-user:
 	poetry run python manage.py dbshell 
@@ -33,6 +40,7 @@ migrate:
 changepass:
 	poetry run python manage.py changepassword $(user)
 
+# deploy (railway)
 requirements:
 	poetry export -f requirements.txt --output requirements.txt --without-hashes
 
@@ -40,6 +48,11 @@ requirements:
 setup-postgres:
 	./bash/setup_postgres.sh
 
+# railway
+gunicorn-prod:
+	gunicorn code_levels.wsgi:application
+
+# deploy (pythonanywhere)
 # 1. Create .env file on production
 # 2. Check for deploy-related issues
 # 3. Collect static files
@@ -87,9 +100,4 @@ frontend:
 	make frontend-install && make frontend-copy && make fix-webfonts
 
 
-# railway
-guvicorn-prod:
-	gunicorn code_levels.wsgi:application
-	
-deploy:
-	make deploy-check && make frontend && make static-prod && make migrate-prod && make guvicorn-prod
+
