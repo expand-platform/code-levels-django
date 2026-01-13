@@ -8,15 +8,15 @@ from django.http import HttpResponse
 
 # handler404 = "platform_web.views.not_found_404"
 
-def healthcheck(request):
-    return HttpResponse("ok")
+# def healthcheck(request):
+#     return HttpResponse("ok")
 
 urlpatterns = [
     path("", include("platform_web.urls")),
     path("cp/", admin.site.urls),
     path("account/", include(("allauth.urls"))),
     path("__reload__/", include("django_browser_reload.urls")),
-    path("healthz/", healthcheck),
+    # path("healthz/", healthcheck),
 ]
 
 # ? development
