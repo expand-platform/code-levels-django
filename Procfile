@@ -1,1 +1,0 @@
-web: chmod +x ./bash/deploy/start.sh
