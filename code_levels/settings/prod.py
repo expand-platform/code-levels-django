@@ -3,15 +3,26 @@ from code_levels.settings.allauth.prod import *
 from dj_database_url import parse
 
 DEBUG = False
-STATIC_ROOT = BASE_DIR / "staticfiles"
 ROOT_URLCONF = "code_levels.urls"
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-MIDDLEWARE += ["whitenoise.middleware.WhiteNoiseMiddleware"]
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    *MIDDLEWARE[1:],
+]
 
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    }
+}
 
 DATABASES = {
     "default": parse(

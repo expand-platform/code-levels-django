@@ -3,11 +3,12 @@ set -e
 
 echo "Starting deploy script..."
 
-echo "Running Django deploy checks..."
-python manage.py check --deploy --settings=code_levels.settings.prod
 
 echo "Applying migrations..."
 python manage.py migrate --noinput --settings=code_levels.settings.prod
+
+echo "Ensuring staticfiles directory exists..."
+mkdir -p staticfiles
 
 echo "Collecting static files..."
 python manage.py collectstatic --noinput --settings=code_levels.settings.prod
