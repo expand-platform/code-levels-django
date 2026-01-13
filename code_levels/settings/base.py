@@ -26,7 +26,7 @@ if not SECRET_KEY:
     raise Exception("DJANGO_SECRET_KEY environment variable must be set!")
 
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [ 
     "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
