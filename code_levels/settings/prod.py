@@ -4,6 +4,7 @@ from dj_database_url import parse
 
 DEBUG = False
 STATIC_ROOT = BASE_DIR / "staticfiles"
+ROOT_URLCONF = "code_levels.urls"
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
