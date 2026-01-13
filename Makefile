@@ -28,7 +28,7 @@ check-active-user:
 # and then - SELECT current_user;
 
 migrate:
-	poetry run python manage.py makemigrations && poetry run python manage.py migrate && poetry run python manage.py runserver 
+	poetry run python manage.py makemigrations && poetry run python manage.py migrate
 
 changepass:
 	poetry run python manage.py changepassword $(user)
