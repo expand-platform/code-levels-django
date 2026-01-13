@@ -13,7 +13,6 @@ local_settings.py
 *.db
 media/
 !static/media
-staticfiles/
 .DS_Store
 *.swp
 *.swo
