@@ -9,6 +9,7 @@ ROOT_URLCONF = "code_levels.urls"
 
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS_DICT
 
+
 env = environ.Env(
     DJANGO_SETTINGS_MODULE=(str, "code_levels.settings"),
     DJANGO_SECRET_KEY=(str, ""),
