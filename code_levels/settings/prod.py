@@ -3,7 +3,6 @@ from code_levels.settings.allauth.prod import *
 from dj_database_url import parse
 
 DEBUG = False
-BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT = BASE_DIR / "staticfiles"
 ROOT_URLCONF = "code_levels.urls"
 
