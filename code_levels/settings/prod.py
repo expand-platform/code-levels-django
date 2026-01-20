@@ -11,6 +11,7 @@ ROOT_URLCONF = "code_levels.urls"
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 ALLOWED_HOSTS = [h.strip() for h in env.list("ALLOWED_HOSTS")]
 
@@ -32,7 +33,7 @@ DATABASES = {
     "default": parse(
         env("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=True, #! revert to False for testing locally
+        # ssl_require=True, #! revert to False for testing locally
     )
 }
 
