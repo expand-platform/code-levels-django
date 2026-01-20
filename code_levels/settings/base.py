@@ -1,10 +1,17 @@
+import os
 import environ
 from pathlib import Path
 from code_levels.settings.allauth.base import *
 from code_levels.settings.plugins.colored_logs import *
 from code_levels.settings.admin.jazzmin import *
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# ! simulate production environment variables
+# load_dotenv(BASE_DIR / ".env.prod")
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'code_levels.settings.prod')
+    
 ROOT_URLCONF = "code_levels.urls"
 
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS_DICT
@@ -61,9 +68,6 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-
-
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -87,10 +91,6 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = "code_levels.wsgi.application"
-
-
-
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {

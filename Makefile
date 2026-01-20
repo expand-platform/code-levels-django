@@ -99,5 +99,13 @@ fix-webfonts:
 frontend:
 	make frontend-install && make frontend-copy && make fix-webfonts
 
+# railway
+rrun:
+	railway run python manage.py runserver
 
-
+uvi:
+	uvicorn code_levels.asgi:application \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --ssl-keyfile ./key.pem \
+    --ssl-certfile ./cert.pem

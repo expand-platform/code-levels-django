@@ -74,3 +74,4 @@ venv/
 ENV/
 
 # *.md
+*.pem

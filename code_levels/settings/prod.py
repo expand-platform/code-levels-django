@@ -17,7 +17,7 @@ DATABASES = {
     "default": parse(
         env("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=True,
+        ssl_require=True, #! revert to False for testing locally
     )
 }
 
