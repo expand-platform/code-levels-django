@@ -11,7 +11,7 @@ MIDDLEWARE += [
 ]
 
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+ALLOWED_HOSTS = [h.strip() for h in env.list("ALLOWED_HOSTS")]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
